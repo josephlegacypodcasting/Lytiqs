@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-poppins), "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--line);
+  }
+}
+
+@layer components {
+  .lyt-display {
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+    color: var(--ink);
+    font-size: clamp(2rem, 1.45rem + 2.4vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.04;
+  }
+  .lyt-h2 {
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+    color: var(--ink);
+    font-size: clamp(1.375rem, 1.18rem + 0.8vw, 1.8125rem);
+    font-weight: 700;
+    line-height: 1.14;
+  }
+  .lyt-question {
+    letter-spacing: -0.03em;
+    text-wrap: pretty;
+    color: var(--ink);
+    font-weight: 700;
+    line-height: 1.18;
+  }
+  .lyt-heading {
+    letter-spacing: -0.024em;
+    color: var(--ink);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .lyt-lede {
+    font-size: var(--step-lede);
+    color: var(--ink-soft);
+    text-wrap: pretty;
+    line-height: 1.6;
+  }
+  .lyt-eyebrow {
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.6875rem;
+    font-weight: 600;
+  }
+}
+
+:root {
+  --paper: #fff;
+  --surface: #fff;
+  --wash: #f4f5f7;
+  --wash-deep: #eef4fa;
+  --ink: #000035;
+  --ink-soft: #454f5e;
+  --ink-faint: #5b6470;
+  --ink-onblue: #fff;
+  --ink-onblue-soft: #cfdcf0;
+  --ink-onyellow: #000035;
+  --accent: #3b6eb5;
+  --accent-hover: #325f9c;
+  --accent-deep: #24487a;
+  --accent-cyan: #c2e4ef;
+  --accent-light: #6f9bd4;
+  --accent-tint: #cddcf0;
+  --accent-soft: #eaf1f8;
+  --accent-contrast: #fff;
+  --btn: #f3d359;
+  --btn-hover: #eec83c;
+  --btn-edge: #d8b63a;
+  --grey: #8e99a2;
+  --line: #e3e6ea;
+  --line-strong: #78838f;
+  --good: #10633f;
+  --warn: #9a5b06;
+  --shadow-card: 0 1px 2px #0000350a, 0 12px 28px -14px #00003524;
+  --shadow-lift: 0 1px 2px #0000350d, 0 20px 40px -18px #00003533;
+  --radius: 4px;
+  --radius-lg: 6px;
+  --rule: #e3e6ea;
+  --rule-strong: #c8cdd4;
+  --step-lede: 1.0625rem;
+  --canvas: #eff2f7;
+  --grid-line: #0000350e;
+}
+
+.lyt-canvas {
+  background-color: var(--canvas);
+  background-image:
+    radial-gradient(900px 520px at 88% -12%, #3b6eb529, transparent 62%),
+    radial-gradient(700px 440px at 2% 106%, #f3d3594d, transparent 64%),
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size:
+    auto,
+    auto,
+    28px 28px,
+    28px 28px;
+}
+
+html {
+  color-scheme: light;
+  background-color: var(--paper);
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-variant-numeric: tabular-nums;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+::selection {
+  background: var(--accent-tint);
+  color: var(--ink);
+}
+
+:where(
+    a,
+    button,
+    input,
+    textarea,
+    [role="button"],
+    [role="radio"],
+    [role="checkbox"]
+  ):not([tabindex="-1"]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+[tabindex="-1"]:focus,
+[tabindex="-1"]:focus-visible {
+  outline: none;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --step-lede: 1.125rem;
+  }
+}
+
+.lyt-band {
+  background-color: var(--ink);
+  color: var(--ink-onblue);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    color: #000;
+    background: #fff;
+  }
+}
